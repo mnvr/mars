@@ -14,7 +14,7 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [git](git)
 * [apk](apk) - Alpine package keeper
 * Shells - [ash](ash) (default), [fish](fish)
-* Documentation - `apk add [docs](docs)`
+* Documentation - [`apk add docs`](docs)
 * [History](history-alpine)
 * [Xfce](xfce) - Desktop environment
 * [xterm](xterm) - Terminal emulator
@@ -23,7 +23,6 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [lightdm](lightdm) - Display manager
 * [UEFI](uefi) - Firmware
 * [GTK](gtk) - Window toolkit
-* [/sys, /proc](sys-and-proc) - Kernel API
 * File viewers - [cat](cat), [more (default)](more-busybox)
 * [upgrading](upgrade)
 * ...[footnotes](footnotes)

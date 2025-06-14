@@ -1,3 +1,4 @@
 # Footnotes
 
-* [Super and hyper](super-and-hyper) keys.
+* [Super and hyper](super-hyper) keys.
+* [/sys, /proc](sys-and-proc) - Kernel API

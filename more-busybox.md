@@ -22,5 +22,5 @@
 Having a pager that's functionally minimal is fine but not
 great. While busybox is eminently usable, similar to the reasoning for
 the [shell](ash), and also a conclusion I reached when trying to get
-[man pages](docs), for a workstation a more fullfleged UNIX toolkit is
-apropos. Hence [coreutils](coreutils).
+their [man pages](docs), for a workstation a more fullfleged UNIX
+toolkit is apropos. Hence [coreutils](coreutils).

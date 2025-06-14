@@ -14,8 +14,8 @@ To store the PAT, we'll use `git-credential`.
 
 > ### git-credential
 
-> git's [credential
-  system<sup>git-scm.com/book</sup>](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage)
+> git's [credential system
+  <sup>git-scm.com/book</sup>](https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage)
   allows delegating to another program (the "helper") to obtain
   credentials.
 
@@ -45,12 +45,11 @@ freak out; both your git credentials _and_ SSH keys are plaintext).
 git config --global credential.helper store
 ```
 
-Create the
-[PAT<sup>github.com/settings</sup>](https://github.com/settings/personal-access-tokens/new),and
-[perform any
-operation<sup>docs.github.com</sup>](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#using-a-personal-access-token-on-the-command-line)
-that requires authentication so that git asks for credentials and uses
-libsecret to store them.
+Create the [PAT
+<sup>github.com/settings</sup>](https://github.com/settings/personal-access-tokens/new),and
+perform any operation that requires authentication so that git asks
+for credentials and uses libsecret to store them ([more info
+<sup>docs.github.com</sup>](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#using-a-personal-access-token-on-the-command-line)).
 
 ### PAT using libsecret
 
@@ -60,8 +59,8 @@ credential`).
 
 > ### libsecret
 >
->
-  [libsecret<sup>wiki.gnome.org</sup>](https://wiki.gnome.org/Projects/Libsecret)
+> [libsecret
+  <sup>wiki.gnome.org</sup>](https://wiki.gnome.org/Projects/Libsecret)
   is a library for storing and retrieving passwords and other
   secrets. It communicates with the "Secret Service" using D-Bus.
 
@@ -70,7 +69,7 @@ apk add git-credential-libsecret
 ```
 
 ```bash
-doas apk info git-credential-libsecret --contents
+apk info git-credential-libsecret --contents
 ```
 
     git-credential-libsecret-2.47.2-r0 contains:
@@ -101,8 +100,8 @@ git config --global commit.gpgsign true
 git config --global gpg.format ssh
 ```
 
-Also tell GitHub that we're using it as a [signing
-key<sup>github.com/settings</sup>](https://github.com/settings/keys).
+Also tell GitHub that we're using it as a [signing key
+<sup>github.com/settings</sup>](https://github.com/settings/keys).
 
 ---
 

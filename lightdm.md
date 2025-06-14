@@ -2,30 +2,37 @@
 
 Display manager.
 
-The display manager is what runs first when we create a desktop environment. It manages the X servers, and provides a login prompt.
+The display manager is what runs first when we create a desktop
+environment. It manages the X servers, and provides a login prompt.
 
-After we enter the credentials in the login prompt, it starts the display environment's session manager. In our case, that's [xfce4-session](xfce.html).
+After we enter the credentials in the login prompt, it starts the
+display environment's session manager. In our case, that's
+[xfce4-session](xfce.html).
 
-From their home page - https://github.com/canonical/lightdm
+From their home page - <https://github.com/canonical/lightdm>
 
-> LightDM is a lightweight, cross-desktop display manager. A display manager is a daemon that:
+> LightDM is a lightweight, cross-desktop display manager. A display
+> manager is a daemon that:
 >
 > * Runs display servers (e.g. X) where necessary.
-> * Runs greeters to allow users to pick which user account and session type to use.
+> * Runs greeters to allow users to pick which user account and
+>   session type to use.
+>
 > * Allows greeters to perform authentication using PAM.
 > * Runs session processes once authentication is complete.
 >
-> Cross-desktop means that it supports different desktop technologies (X, Wayland, Mir, etc).
+> Cross-desktop means that it supports different desktop technologies
+> (X, Wayland, Mir, etc).
 >
-> The core LightDM project does not provide any greeter with it. Popular options are:
+> The core LightDM project does not provide any greeter with
+> it. Popular options are:
 >
 > * LightDM GTK+ greeter
 > * ...
 > * Run with no greeter (automatic login only)
 > * Write your own...
 
-
-```bash
+```sh
 cat /etc/os-release
 ```
 
@@ -38,7 +45,7 @@ cat /etc/os-release
 
 
 
-```bash
+```sh
 cat /etc/alpine-release
 ```
 
@@ -48,47 +55,42 @@ cat /etc/alpine-release
 For Alpine (currently),
 * The display server is X
 * The greeter is LightDM GTK+
-* The session process that LightDM will run once authentication completes is xfce4-session.
+* The session process that LightDM will run once authentication
+  completes is xfce4-session.
 
 ## Configuration
 
 Per the docs, this is the order in which config is read.
-```
+
+```sh
 /usr/share/lightdm/lightdm.conf.d/*.conf
 /etc/lightdm/lightdm.conf.d/*.conf
 /etc/lightdm/lightdm.conf
 ```
 
 
-```bash
+```sh
 find /usr/share/lightdm/lightdm.conf.d
 ```
 
     find: /usr/share/lightdm/lightdm.conf.d: No such file or directory
 
 
-
-
-
-```bash
+```sh
 find /etc/lightdm/lightdm.conf.d
 ```
 
     find: /etc/lightdm/lightdm.conf.d: No such file or directory
 
 
-
-
-
-```bash
+```sh
 wc -l /etc/lightdm/lightdm.conf
 ```
 
     163 /etc/lightdm/lightdm.conf
 
 
-
-```bash
+```sh
 ls /etc/lightdm
 ```
 
@@ -96,8 +98,7 @@ ls /etc/lightdm
     [0;0mlightdm-gtk-greeter.conf[m  [0;0musers.conf[m
 
 
-
-```bash
+```sh
 cat /etc/lightdm/*.conf | grep -v '^#'
 ```
 
@@ -118,21 +119,24 @@ cat /etc/lightdm/*.conf | grep -v '^#'
 
 So looks like everything is at the defaults. From the docs
 
-> For example, if a sysadmin wanted to override the system configured default session they should make a file `/etc/lightdm/lightdm.conf.d/50-myconfig.conf`
+> For example, if a sysadmin wanted to override the system configured
+> default session they should make a file
+> `/etc/lightdm/lightdm.conf.d/50-myconfig.conf`
 >
 > ```
 > [Seat:*]
 > user-session=mysession
 > ```
 >
-> Configuration is in keyfile format. For most installations you will want to change the keys in the `[Seat:*]` section as this applies to all seats on the system (normally just one).
+> Configuration is in keyfile format. For most installations you will
+> want to change the keys in the `[Seat:*]` section as this applies to
+> all seats on the system (normally just one).
 
-* More about seats: [tty](tty.html)
+* More about seats: [tty](tty)
 
 How does lightdm know which greeter to use?
 
-
-```bash
+```sh
 cat /etc/lightdm/lightdm.conf | grep greeters-dir
 ```
 
@@ -140,8 +144,7 @@ cat /etc/lightdm/lightdm.conf | grep greeters-dir
     #greeters-directory=$XDG_DATA_DIRS/lightdm/greeters:$XDG_DATA_DIRS/xgreeters
 
 
-
-```bash
+```sh
 env | grep -e 'XDG'
 ```
 
@@ -163,8 +166,7 @@ env | grep -e 'XDG'
     XDG_DATA_DIRS=/usr/local/share:/usr/share
 
 
-
-```bash
+```sh
 echo $XDG_DATA_DIRS | tr ':' '\n' | xargs -n 1 -I % ls %/xgreeters
 ```
 
@@ -172,30 +174,26 @@ echo $XDG_DATA_DIRS | tr ':' '\n' | xargs -n 1 -I % ls %/xgreeters
     [0;0mlightdm-gtk-greeter.desktop[m
 
 
-
-
-
-```bash
+```sh
 apk info --who-owns /usr/share/xgreeters/lightdm-gtk-greeter.desktop
 ```
 
     /usr/share/xgreeters/lightdm-gtk-greeter.desktop is owned by lightdm-gtk-greeter-2.0.8-r3
 
 
-So when I chose Xfce, `/usr/sbin/setup-desktop` installed both lightdm and lightdm-gtk-greeter, the latter installing this desktop file which lightdm uses unconfigured (I presume because it's the only one).
+So when I chose Xfce, `/usr/sbin/setup-desktop` installed both lightdm
+and lightdm-gtk-greeter, the latter installing this desktop file which
+lightdm uses unconfigured (I presume because it's the only one).
 
-There is also a `~/.dmrc`, but from what I gather, lightdm is the one which writes it for us (https://github.com/canonical/lightdm), and going by the creation time, on first login.
+There is also a `~/.dmrc`, but from what I gather, lightdm is the one
+which writes it for us, and going by the creation time, on first
+login.
 
 
-```bash
+```sh
 cat ~/.dmrc
 ```
 
     [Desktop]
     Session=xfce
 
-
-
-```bash
-
-```

@@ -25,7 +25,7 @@ setup-desktop # xfce
 
 Simple shells scripts located in `/usr/sbin`.
 
-* https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts
+* <https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts>
 
 
 ```bash
@@ -55,6 +55,10 @@ ls /usr/sbin | grep setup-
     setup-xen-dom0
     setup-xorg-base
 
+These can be used also after installation. For example, to set the
+system's hostname, `hostname mars` doesn't persist the changes,
+`setup-hostname` does (it doesn't even invoke `hostname`, only sets
+`/etc/hostname`, and is quite trivial, just is "proper").
 
 ## sys mode
 

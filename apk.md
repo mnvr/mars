@@ -63,14 +63,16 @@ From
 
 ## apk search
 
+- Web interface: [pkgs.alpinelinux.org](https://pkgs.alpinelinux.org)
+
 ## Searching packages by binary
 
 `cmd:` prefix. There is also `so:`.
 
-- Web interface: [pkgs.alpinelinux.org](https://pkgs.alpinelinux.org)
-
-- Help section in user handbook: [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages)
-
 ```sh
 apk search cmd:dig
 ```
+
+More info in
+[docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).
+
