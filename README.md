@@ -1,5 +1,3 @@
-# Mars
-
 Notes on my workstation, Mars.
 
 * Alpine Linux
@@ -27,7 +25,3 @@ Homepage: https://alpinelinux.org
 * [cat](cat) - file viewer
 * [upgrading](upgrade)
 * [emacs](emacs) - editor
-
-## About
-
-Generated from open source markdown files (https://github.com/mnvr/mars)
