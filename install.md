@@ -1,0 +1,58 @@
+## Install
+
+Minimal install is just `setup-alpine`, then `setup-desktop`. The following is what _I_ did last time.
+
+> Likely outdated, read what the [official docs](https://alpinelinux.org/) have to say.
+
+```sh
+setup-alpine
+# setup-keymap us / us-dvorak
+# ntp-client busybox
+# disk vda mode sys
+# user m
+reboot
+
+vi /etc/apk/repositories # enable community, https
+apk add doas docs emacs-nox git curl file
+echo "permit nopass :m" >>/etc/doas.d/doas.conf
+setup-desktop # xfce
+```
+
+## setup-*
+
+Simple shells scripts located in `/usr/sbin`.
+
+* https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts
+
+
+```bash
+ls /usr/sbin | grep setup-
+```
+
+    setup-acf
+    setup-alpine
+    setup-apkcache
+    setup-apkrepos
+    setup-bootable
+    setup-desktop
+    setup-devd
+    setup-disk
+    setup-dns
+    setup-hostname
+    setup-interfaces
+    setup-keymap
+    setup-lbu
+    setup-mta
+    setup-ntp
+    setup-proxy
+    setup-sshd
+    setup-timezone
+    setup-user
+    setup-wayland-base
+    setup-xen-dom0
+    setup-xorg-base
+
+
+## sys mode
+
+sys mode is where the Alpine system is installed to a hard disk.
