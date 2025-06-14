@@ -6,22 +6,28 @@ Notes on my workstation, Mars.
 
 ## Alpine Linux
 
-Homepage: https://alpinelinux.org
+The BSD I wanted, but forward looking.
 
-* [installing](install)
+Homepage: [alpinelinux.org](https://alpinelinux.org)
+
+* [Installing](install)
 * [git](git)
-* [apk](apk) - alpine package keeper
-* [ash](ash) - the default shell
-* [documentation](docs)
-* [history](history)
-* [xfce](xfce) - desktop environment
-* [xterm](xterm) - terminal emulator
-* [xfconf](xfconf) - xfce settings
-* [tty](tty)- pseudo teletypes
-* [lightdm](lightdm) - display manager
-* [uefi](uefi) - firmware
-* [gtk](gtk) - window toolkit
-* [/sys, /proc](sys-and-proc) - kernel api
-* [cat](cat) - file viewer
+* [apk](apk) - Alpine package keeper
+* Shells - [ash](ash) (default), [fish](fish)
+* Documentation - `apk add [docs](docs)`
+* [History](history-alpine)
+* [Xfce](xfce) - Desktop environment
+* [xterm](xterm) - Terminal emulator
+* [xfconf](xfconf) - Xfce settings
+* [tty](tty) - Teletypes / Simulcara and simulation
+* [lightdm](lightdm) - Display manager
+* [UEFI](uefi) - Firmware
+* [GTK](gtk) - Window toolkit
+* [/sys, /proc](sys-and-proc) - Kernel API
+* File viewers - [cat](cat), [more (default)](more-busybox)
 * [upgrading](upgrade)
-* [emacs](emacs) - editor
+* ...[footnotes](footnotes)
+
+## Emacs
+
+* [emacs](emacs) - Editor

@@ -29,16 +29,23 @@ https://dl-cdn.alpinelinux.org/alpine/edge/main
 /var/apk/my-packages
 ```
 
-Public keys of the official Alpine repositories are already included on the system by the `alpine-keys` package.
+Public keys of the official Alpine repositories are already included
+on the system by the `alpine-keys` package.
 
 
-### Updating repositories indexes
+## `apk update`
+
+Updating repositories indexes.
 
 ```sh
 apk update
 ```
 
-### World
+We don't need to do this usually, other apk commands that depend on
+the repository index will automatically do this once the 4 hour cache
+expires.
+
+## `/etc/apk/world`
 
 List of all installed packages:
 
@@ -46,6 +53,24 @@ List of all installed packages:
 cat /etc/apk/world
 ```
 
-From Alpine docs (https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_world):
+From
+[docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_world):
 
-> The packages you want to have explicitly installed are listed in the "world file" available in `/etc/apk/world`. It is safe to edit by hand. If you've edited it by hand, you may run `apk add` with no arguments to bring the package selection to a consistent state.
+> The packages you want to have explicitly installed are listed in the
+  "world file" available in `/etc/apk/world`. It is safe to edit by
+  hand. If you've edited it by hand, you may run `apk add` with no
+  arguments to bring the package selection to a consistent state.
+
+## apk search
+
+## Searching packages by binary
+
+`cmd:` prefix. There is also `so:`.
+
+- Web interface: [pkgs.alpinelinux.org](https://pkgs.alpinelinux.org)
+
+- Help section in user handbook: [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages)
+
+```sh
+apk search cmd:dig
+```

@@ -1,12 +1,15 @@
 ## Install
 
-Minimal install is just `setup-alpine`, then `setup-desktop`. The following is what _I_ did last time.
+Minimal install is just `setup-alpine`, then `setup-desktop`. The
+following is what _I_ did last time.
 
-> Likely outdated, read what the [official docs](https://alpinelinux.org/) have to say.
+> Likely outdated, read what the [official
+  docs](https://alpinelinux.org/) have to say.
 
 ```sh
 setup-alpine
 # setup-keymap us / us-dvorak
+# hostname mars
 # ntp-client busybox
 # disk vda mode sys
 # user m

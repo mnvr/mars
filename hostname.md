@@ -1,3 +1,0 @@
-```sh
-doas hostname mars
-```
