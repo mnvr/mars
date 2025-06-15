@@ -80,7 +80,7 @@ can't think of another place to see the docs except `man bash`. These following
 escape sequences look relevant:
 
 ```
-\[    begin a sequence of non-printing characters, which could 
+\[    begin a sequence of non-printing characters, which could
       be used to embed a terminal control sequence into the prompt
 \]    end a sequence of non-printing characters
 ```

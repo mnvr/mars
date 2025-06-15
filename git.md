@@ -69,7 +69,7 @@ apk info git-credential-libsecret --contents
 ```
 git-credential-libsecret-2.47.2-r0 contains:
 usr/libexec/git-core/git-credential-libsecret
-```    
+```
 
 ```sh
 git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret

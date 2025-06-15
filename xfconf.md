@@ -7,25 +7,25 @@ Xfce configuration subsystem.
 ls /usr/bin | grep xf | paste - - | while read a b; do printf "%-30s %-30s\n" $a $b; done
 ```
 ```
-startxfce4                     xfce4-about                   
-xfce4-accessibility-settings   xfce4-appearance-settings     
-xfce4-appfinder                xfce4-display-settings        
-xfce4-find-cursor              xfce4-keyboard-settings       
-xfce4-mime-helper              xfce4-mime-settings           
-xfce4-mouse-settings           xfce4-panel                   
-xfce4-popup-applicationsmenu   xfce4-popup-directorymenu     
-xfce4-popup-windowmenu         xfce4-power-manager           
-xfce4-power-manager-settings   xfce4-screensaver             
+startxfce4                     xfce4-about
+xfce4-accessibility-settings   xfce4-appearance-settings
+xfce4-appfinder                xfce4-display-settings
+xfce4-find-cursor              xfce4-keyboard-settings
+xfce4-mime-helper              xfce4-mime-settings
+xfce4-mouse-settings           xfce4-panel
+xfce4-popup-applicationsmenu   xfce4-popup-directorymenu
+xfce4-popup-windowmenu         xfce4-power-manager
+xfce4-power-manager-settings   xfce4-screensaver
 xfce4-screensaver-command      xfce4-screensaver-configure.py
-xfce4-screensaver-preferences  xfce4-session                 
-xfce4-session-logout           xfce4-session-settings        
-xfce4-settings-editor          xfce4-settings-manager        
-xfce4-terminal                 xfce4-wayland                 
-xfconf-query                   xfdesktop                     
-xfdesktop-settings             xflock4                       
-xfrun4                         xfsettingsd                   
-xfwm4                          xfwm4-settings                
-xfwm4-tweaks-settings          xfwm4-workspace-settings      
+xfce4-screensaver-preferences  xfce4-session
+xfce4-session-logout           xfce4-session-settings
+xfce4-settings-editor          xfce4-settings-manager
+xfce4-terminal                 xfce4-wayland
+xfconf-query                   xfdesktop
+xfdesktop-settings             xflock4
+xfrun4                         xfsettingsd
+xfwm4                          xfwm4-settings
+xfwm4-tweaks-settings          xfwm4-workspace-settings
 ```
 
 Individual Xfce components have their own settings app

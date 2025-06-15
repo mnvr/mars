@@ -7,4 +7,3 @@ On MacBook keyboards,
 
 For example, the default [xfce](xfce) keybinding for opening Thunar is `Super +
 E`, which'll be `Cmd + E`.
-

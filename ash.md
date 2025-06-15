@@ -18,7 +18,7 @@ lrwxrwxrwx    1 root     root          12 May 17 16:56 /bin/sh -> /bin/busybox
 
 ## Customizing
 
-Two step process. First, create a `~/.profile` with 
+Two step process. First, create a `~/.profile` with
 
 ```sh
 export ENV=$HOME/.ashrc ash

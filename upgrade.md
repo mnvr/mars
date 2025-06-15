@@ -20,11 +20,11 @@ The wiki page of upgrades (https://wiki.alpinelinux.org/wiki/Upgrading_Alpine_Li
 > 2. Updatating package lists
 > 3. Upgrading packages.
 
-Step 1 is 
+Step 1 is
 ```sh
 emacs /etc/apk/repositories
 ```
-and put the latest version. 
+and put the latest version.
 
 > There is a way to skip this step for future upgrades by putting `latest-stable` instead of version numbers, but the wiki cautions that this might lead to release upgrades when one is not expecting.
 
