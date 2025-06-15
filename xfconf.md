@@ -16,16 +16,15 @@ xfce4-mouse-settings           xfce4-panel
 xfce4-popup-applicationsmenu   xfce4-popup-directorymenu
 xfce4-popup-windowmenu         xfce4-power-manager
 xfce4-power-manager-settings   xfce4-screensaver
-xfce4-screensaver-command      xfce4-screensaver-configure.py
-xfce4-screensaver-preferences  xfce4-session
-xfce4-session-logout           xfce4-session-settings
-xfce4-settings-editor          xfce4-settings-manager
-xfce4-terminal                 xfce4-wayland
-xfconf-query                   xfdesktop
-xfdesktop-settings             xflock4
-xfrun4                         xfsettingsd
-xfwm4                          xfwm4-settings
-xfwm4-tweaks-settings          xfwm4-workspace-settings
+xfce4-screensaver-command      xfce4-screensaver-preferences
+xfce4-session                  xfce4-session-logout
+xfce4-session-settings         xfce4-settings-editor
+xfce4-settings-manager         xfce4-terminal
+xfce4-wayland                  xfconf-query
+xfdesktop                      xfdesktop-settings
+xflock4                        xfrun4
+xfsettingsd                    xfwm4
+xfwm4-settings                 xfwm4-tweaks-settings
 ```
 
 Individual Xfce components have their own settings app
@@ -35,9 +34,10 @@ there are freestanding settings too that affect multiple components
 
 There are 4 programs that deal with settings themselves:
 
-* `xf-settings-manager` - The "Settings" meta app, that shows the settings
-  "dialogs" for all Xfce components present on the system.
-* `xf-settings-editor` - A rawer program to directly edit the key values.
+* `xfce4-settings-manager` - The "Settings" meta app, that shows the
+  settings "dialogs" for all Xfce components present on the system.
+* `xfce4-settings-editor` - A rawer program to directly edit the key
+  values.
 * `xfsettingsd` - A background daemon that applies settings updates.
 
 These three form the xfce4-settings component
@@ -90,57 +90,48 @@ Channels:
   xfce4-desktop
   xfce4-keyboard-shortcuts
   xfce4-panel
-  xfce4-power-manager
-  xfce4-screensaver
   xfce4-session
   xfce4-settings-editor
   xfce4-settings-manager
-  xfce4-terminal
   xfwm4
   xsettings
 ```
 
 ```sh
-xfconf-query -c xfce4-screensaver --list
+xfconf-query -c keyboard-layout --list
 ```
 ```
-/lock/enabled
-/saver/mode
-/saver/themes/list
+/Default/XkbDisable
+/Default/XkbLayout
+/Default/XkbVariant
 ```
 
 ```sh
-xfconf-query -c xfce4-screensaver --property /saver/mode
+xfconf-query -c keyboard-layout --property /Default/XkbVariant
 ```
 ```
-1
+dvorak
 ```
 
 ## `~/.config/xfce4`
 
 The XML files the docs speak of are in `~/.config`
 
-
 ```sh
-cd ~/.config/xfce4/xfconf && find
+cd ~/.config/xfce4/xfconf && find . -type f
 ```
 ```
-.
-./xfce-perchannel-xml
-./xfce-perchannel-xml/xfce4-desktop.xml
-./xfce-perchannel-xml/xfce4-panel.xml
-./xfce-perchannel-xml/xfce4-settings-editor.xml
-./xfce-perchannel-xml/xfce4-screensaver.xml
 ./xfce-perchannel-xml/keyboard-layout.xml
-./xfce-perchannel-xml/xfce4-power-manager.xml
-./xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+./xfce-perchannel-xml/xfce4-panel.xml
 ./xfce-perchannel-xml/xfce4-settings-manager.xml
+./xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+./xfce-perchannel-xml/xsettings.xml
+./xfce-perchannel-xml/displays.xml
+./xfce-perchannel-xml/keyboards.xml
+./xfce-perchannel-xml/xfce4-settings-editor.xml
+./xfce-perchannel-xml/thunar.xml
 ./xfce-perchannel-xml/xfce4-session.xml
 ./xfce-perchannel-xml/xfce4-appfinder.xml
-./xfce-perchannel-xml/keyboards.xml
-./xfce-perchannel-xml/thunar.xml
-./xfce-perchannel-xml/xfce4-terminal.xml
 ./xfce-perchannel-xml/xfwm4.xml
-./xfce-perchannel-xml/displays.xml
-./xfce-perchannel-xml/xsettings.xml
+./xfce-perchannel-xml/xfce4-desktop.xml
 ```
