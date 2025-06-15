@@ -24,9 +24,9 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [UEFI](uefi) - Firmware
 * [GTK](gtk) - Window toolkit
 * File viewers - [cat](cat), [more (default)](more-busybox)
-* [upgrading](upgrade)
+* [Upgrading](upgrade)
 * ...[footnotes](footnotes)
 
 ## Emacs
 
-* [emacs](emacs) - Editor
+* [Emacs](emacs) - Editor

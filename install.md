@@ -25,7 +25,7 @@ setup-desktop # xfce
 
 Simple shells scripts located in `/usr/sbin`.
 
-* <https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts>
+* [Alpine wiki / Setup scripts](https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts)
 
 ```sh
 ls /usr/sbin | grep setup-

@@ -3,7 +3,7 @@
 Desktop environment
 
 * [xfce.org](https://xfce.org/)
-* [docs.xfce.org/xfce/getting-started[(https://docs.xfce.org/xfce/getting-started)
+* [docs.xfce.org/xfce/getting-started](https://docs.xfce.org/xfce/getting-started)
 
 ```sh
 xfce4-about --version
@@ -58,9 +58,13 @@ Descriptions taken from `xfce4-about` and the Xfce
 > xfce4-session uses the contents of the `~/.cache/sessions` directory for
 > starting previously saved sessions.
 
-```sh ls ~/.cache/sessions ``` ``` thumbs-localhost:0
+```sh
+ls ~/.cache/sessions
+```
+``` thumbs-localhost:0
 xfce4-session-localhost:0
-xfwm4-26b706f01-8fc9-4136-a5de-c7a189e18e56.state ```
+xfwm4-26b706f01-8fc9-4136-a5de-c7a189e18e56.state
+```
 
 ```sh
 ls ~/.cache/sessions/thumbs*
@@ -226,10 +230,10 @@ reusing it for invocations.
 
 ## Thunar
 
-File manager, named after the German god of Thunder (who appears to be the same
-entity as the perhaps better known Norse god Thor).
+File manager, named after the German god of Thunder (who is apparently
+the same entity as the more widely known Norse god Thor).
 
-`thunar` without arguments does the same thing as `xdg-open .`, opening the
+`thunar` without arguments does the same thing as `exo-open .`, opening the
 current folder in the file manager.
 
 ```sh
@@ -239,3 +243,28 @@ ls -lh `which thunar` `which Thunar`
 lrwxrwxrwx    1 root     root           6 May 17 17:01 /usr/bin/Thunar -> thunar
 -rwxr-xr-x    1 root     root      777.9K Jul 31  2024 /usr/bin/thunar
 ```
+
+## exo-open
+
+"`exo-open` is the CLI interface to the Xfce Preferred Applications framework".
+
+- `exo-open ~` - File URLs open in Thunar.
+- `exo-open https://mnvr.in` - HTTPS URLs open in the default web browser.
+- `exo-open --launch WebBrowser mnvr.in` - We all need a little help
+  sometimes, like `exo-open` does for URLs without a scheme.
+
+## Keyboard shortcuts
+
+```sh
+xfce4-keyboard-settings &
+```
+
+* Thunar - `Super + E` (what's [Super](super-and-hyper)?)
+* Appfinder - `Super + R`
+* `xfce4-session-logout` - `Ctrl + Alt + Delete` (Requires Fn on MacBook keyboards)
+
+## xfwm4
+
+Window manager.
+
+* Alt + Tab - Cycle through windows.

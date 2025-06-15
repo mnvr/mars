@@ -2,11 +2,11 @@
 
 Xfce Terminal emulator
 
-> `xterm` is the OG X terminal emulator. Here we talk of the terminal
-> emulator provided by the Xfce desktop environment, currently named
-> `xfce4-terminal`.
+> `xterm` is the OG X terminal emulator. Here we inaccurately but
+> conveniently use it when talking of the terminal emulator provided
+> by the Xfce desktop environment, `xfce4-terminal`.
 
-* More about terminal emulators: [tty](tty.html)
+* More about [terminal emulators](tty.html).
 
 ## Keyboard shortcuts
 
