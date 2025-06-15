@@ -118,20 +118,62 @@ dvorak
 The XML files the docs speak of are in `~/.config`
 
 ```sh
-cd ~/.config/xfce4/xfconf && find . -type f
+cd ~/.config/xfce4/xfconf/xfce-perchannel-xml && find . -type f
 ```
 ```
-./xfce-perchannel-xml/keyboard-layout.xml
-./xfce-perchannel-xml/xfce4-panel.xml
-./xfce-perchannel-xml/xfce4-settings-manager.xml
-./xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-./xfce-perchannel-xml/xsettings.xml
-./xfce-perchannel-xml/displays.xml
-./xfce-perchannel-xml/keyboards.xml
-./xfce-perchannel-xml/xfce4-settings-editor.xml
-./xfce-perchannel-xml/thunar.xml
-./xfce-perchannel-xml/xfce4-session.xml
-./xfce-perchannel-xml/xfce4-appfinder.xml
-./xfce-perchannel-xml/xfwm4.xml
-./xfce-perchannel-xml/xfce4-desktop.xml
+./keyboard-layout.xml
+./xfce4-panel.xml
+./xfce4-settings-manager.xml
+./xfce4-keyboard-shortcuts.xml
+./xsettings.xml
+./displays.xml
+./keyboards.xml
+./xfce4-settings-editor.xml
+./thunar.xml
+./xfce4-session.xml
+./xfce4-appfinder.xml
+./xfwm4.xml
+./xfce4-terminal.xml
+./xfce4-desktop.xml
 ```
+
+## git `~/.config`
+
+Conceptually, the entire `~/.config` can be version controlled. Practically, as
+of today, early 2025, this is an exercise in futility, because these settings
+are a mixture of both the relatively persistent (my "prefs") and the obviously
+transient (some of these apps store window sizes and positions there).
+
+So putting the entirety of `~/.config` under git and subsuming it in dotfiles is
+not happening. However, while a bit more cumbersome, it is still possible to
+declaratively restore preferences by keeping the `xfconf-query --set`
+invocations in dotfiles.
+
+> That said, since it is trivial to version control `~/.config`, might as well
+> do it, just to observe what changes when.
+>
+> ```sh
+> cd ~/.config && git init && git add . && git commit -m 'Initial commit'
+> ```
+
+## Dotfileable
+
+Until the settings panel for a particular channel is opened, the channel might
+not exist, nor the property. So we need to pass the "--create". Which also
+necessitates passing the "--type".
+
+So to restore the system state in dotfiles requires invocations of the form:
+
+```sh
+xfconf-query --channel xfce4-terminal --property /shortcuts-no-mnemonics --create --type bool --set true
+```
+
+Which can be shortened to the following template
+
+```sh
+xfconf-query -c xfce4-terminal -np /shortcuts-no-mnemonics -t bool -s true
+```
+
+From the examples in the
+[docs.xfce.org/xfce/xfconf/xfconf-query](https://docs.xfce.org/xfce/xfconf/xfconf-query),
+the types seem to be `bool`, `string`, `int`.

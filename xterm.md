@@ -35,8 +35,12 @@ Prefix `Shift`
 
 ## Preferences
 
-* Turn on "Disable all menu access keys (such as Alt + f)", otherwise it gets in
-  the way of emacs.
+Turn on "Disable all menu access keys (such as Alt + f)", otherwise it gets in
+the way of emacs.
+
+```sh
+xfconf-query -c xfce4-terminal -np /shortcuts-no-mnemonics -t bool -s true
+```
 
 ## Dynamic title
 
