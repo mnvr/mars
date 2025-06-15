@@ -29,9 +29,8 @@ https://dl-cdn.alpinelinux.org/alpine/edge/main
 /var/apk/my-packages
 ```
 
-Public keys of the official Alpine repositories are already included
-on the system by the `alpine-keys` package.
-
+Public keys of the official Alpine repositories are already included on the
+system by the `alpine-keys` package.
 
 ## `apk update`
 
@@ -41,9 +40,8 @@ Updating repositories indexes.
 apk update
 ```
 
-We don't need to do this usually, other apk commands that depend on
-the repository index will automatically do this once the 4 hour cache
-expires.
+We don't need to do this usually, other apk commands that depend on the
+repository index will automatically do this once the 4 hour cache expires.
 
 ## `/etc/apk/world`
 
@@ -56,10 +54,10 @@ cat /etc/apk/world
 From
 [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_world):
 
-> The packages you want to have explicitly installed are listed in the
-  "world file" available in `/etc/apk/world`. It is safe to edit by
-  hand. If you've edited it by hand, you may run `apk add` with no
-  arguments to bring the package selection to a consistent state.
+> The packages you want to have explicitly installed are listed in the "world
+> file" available in `/etc/apk/world`. It is safe to edit by hand. If you've
+> edited it by hand, you may run `apk add` with no arguments to bring the
+> package selection to a consistent state.
 
 ## apk search
 
@@ -76,3 +74,18 @@ apk search cmd:dig
 More info in
 [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).
 
+## apk contents
+
+The `--contents` flag (aka `-L`) to `apk info` can be used to list the files
+included in the package.
+
+```sh
+apk info --contents doas
+```
+```
+doas-6.8.2-r8 contains:
+etc/doas.conf
+usr/bin/doas
+```
+
+This only works if the package is already installed.

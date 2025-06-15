@@ -2,17 +2,15 @@
 
 ash is the default alpine shell. It is a symlink to the busybox dash.
 
-
-```bash
+```sh
 ls -lh `which ash` `which sh`
 ```
-
-    lrwxrwxrwx    1 root     root          12 May 17 16:56 [1;36m/bin/ash[m -> [1;32m/bin/busybox[m
-    lrwxrwxrwx    1 root     root          12 May 17 16:56 [1;36m/bin/sh[m -> [1;32m/bin/busybox[m
-
+```
+lrwxrwxrwx    1 root     root          12 May 17 16:56 /bin/ash -> /bin/busybox
+lrwxrwxrwx    1 root     root          12 May 17 16:56 /bin/sh -> /bin/busybox
+```
 
 > #### Pedigree
->
 >
 > ash (almquist shell) came around the time of bash. In 90s it was
 > posted to debian as dash, from which the shell in busybox

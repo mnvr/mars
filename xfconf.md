@@ -3,56 +3,67 @@
 Xfce configuration subsystem.
 
 
-```bash
+```sh
 ls /usr/bin | grep xf | paste - - | while read a b; do printf "%-30s %-30s\n" $a $b; done
 ```
+```
+startxfce4                     xfce4-about                   
+xfce4-accessibility-settings   xfce4-appearance-settings     
+xfce4-appfinder                xfce4-display-settings        
+xfce4-find-cursor              xfce4-keyboard-settings       
+xfce4-mime-helper              xfce4-mime-settings           
+xfce4-mouse-settings           xfce4-panel                   
+xfce4-popup-applicationsmenu   xfce4-popup-directorymenu     
+xfce4-popup-windowmenu         xfce4-power-manager           
+xfce4-power-manager-settings   xfce4-screensaver             
+xfce4-screensaver-command      xfce4-screensaver-configure.py
+xfce4-screensaver-preferences  xfce4-session                 
+xfce4-session-logout           xfce4-session-settings        
+xfce4-settings-editor          xfce4-settings-manager        
+xfce4-terminal                 xfce4-wayland                 
+xfconf-query                   xfdesktop                     
+xfdesktop-settings             xflock4                       
+xfrun4                         xfsettingsd                   
+xfwm4                          xfwm4-settings                
+xfwm4-tweaks-settings          xfwm4-workspace-settings      
+```
 
-    startxfce4                     xfce4-about                   
-    xfce4-accessibility-settings   xfce4-appearance-settings     
-    xfce4-appfinder                xfce4-display-settings        
-    xfce4-find-cursor              xfce4-keyboard-settings       
-    xfce4-mime-helper              xfce4-mime-settings           
-    xfce4-mouse-settings           xfce4-panel                   
-    xfce4-popup-applicationsmenu   xfce4-popup-directorymenu     
-    xfce4-popup-windowmenu         xfce4-power-manager           
-    xfce4-power-manager-settings   xfce4-screensaver             
-    xfce4-screensaver-command      xfce4-screensaver-configure.py
-    xfce4-screensaver-preferences  xfce4-session                 
-    xfce4-session-logout           xfce4-session-settings        
-    xfce4-settings-editor          xfce4-settings-manager        
-    xfce4-terminal                 xfce4-wayland                 
-    xfconf-query                   xfdesktop                     
-    xfdesktop-settings             xflock4                       
-    xfrun4                         xfsettingsd                   
-    xfwm4                          xfwm4-settings                
-    xfwm4-tweaks-settings          xfwm4-workspace-settings      
-
-
-Individual Xfce components have their own settings app (e.g. `xfdesktop-settings`, `xfce4-session-settings`), `xfwm4` has multiple, and there are freestanding settings too that affect multiple components (`xfce4-keyboard-settings`).
+Individual Xfce components have their own settings app
+(e.g. `xfdesktop-settings`, `xfce4-session-settings`), `xfwm4` has multiple, and
+there are freestanding settings too that affect multiple components
+(`xfce4-keyboard-settings`).
 
 There are 4 programs that deal with settings themselves:
 
-* `xf-settings-manager` - The "Settings" meta app, that shows the settings "dialogs" for all Xfce components present on the system.
+* `xf-settings-manager` - The "Settings" meta app, that shows the settings
+  "dialogs" for all Xfce components present on the system.
 * `xf-settings-editor` - A rawer program to directly edit the key values.
 * `xfsettingsd` - A background daemon that applies settings updates.
 
-These three form the xfce4-settings component (https://docs.xfce.org/xfce/xfce4-settings/start):
+These three form the xfce4-settings component
+(<https://docs.xfce.org/xfce/xfce4-settings/start>):
 
-> The xfce4-settings component provides a daemon, manager, and editor to centralize the configuration management of the Xfce system.
+> The xfce4-settings component provides a daemon, manager, and editor to
+> centralize the configuration management of the Xfce system.
 
-That leaves the last thing on the list, and the topic of our perusal here - `xfconf-query`
+That leaves the last thing on the list, and the topic of our perusal here -
+`xfconf-query`
 
 ## xfconf
 
-It feels weird to have a H1 and H2 with the same value.
+So we end up with a H1 and H2 with the same value.
 
-Xfconf is a "simple client-server configuration storage and query system" (https://www.xfce.org/projects).
+Xfconf is a "simple client-server configuration storage and query system"
+(<https://www.xfce.org/projects>).
 
-https://docs.xfce.org/xfce/xfconf/start has more to say:
+<https://docs.xfce.org/xfce/xfconf/start> has more to say:
 
-> Xfconf is a hierarchical (tree-like) configuration system where the immediate child nodes of the root are called "channels". All settings beneath the channel nodes are called "properties".
+> Xfconf is a hierarchical (tree-like) configuration system where the immediate
+> child nodes of the root are called "channels". All settings beneath the
+> channel nodes are called "properties".
 >
-> Property names are referenced by their "full path" underneath the channel. Everything is case-insensitive. Example:
+> Property names are referenced by their "full path" underneath the
+> channel. Everything is case-insensitive. Example:
 >
 > * Channel: ExampleApp, Property: /main/history-window/last-accessed
 >
@@ -61,82 +72,75 @@ https://docs.xfce.org/xfce/xfconf/start has more to say:
 > - Configuration dialogs within Settings manager.
 > - Settings editor
 > - Using `xfconf-query`
-> - Manually. Xfconf stores all its data in XML files which can be edited when Xfconf is not running.
+> - Manually. Xfconf stores all its data in XML files which can be edited when
+>   Xfconf is not running.
 
 ## `xfconf-query`
 
-
-```bash
+```sh
 xfconf-query --list
 ```
+```
+Channels:
+  displays
+  keyboard-layout
+  keyboards
+  thunar
+  xfce4-appfinder
+  xfce4-desktop
+  xfce4-keyboard-shortcuts
+  xfce4-panel
+  xfce4-power-manager
+  xfce4-screensaver
+  xfce4-session
+  xfce4-settings-editor
+  xfce4-settings-manager
+  xfce4-terminal
+  xfwm4
+  xsettings
+```
 
-    Channels:
-      displays
-      keyboard-layout
-      keyboards
-      thunar
-      xfce4-appfinder
-      xfce4-desktop
-      xfce4-keyboard-shortcuts
-      xfce4-panel
-      xfce4-power-manager
-      xfce4-screensaver
-      xfce4-session
-      xfce4-settings-editor
-      xfce4-settings-manager
-      xfce4-terminal
-      xfwm4
-      xsettings
-
-
-
-```bash
+```sh
 xfconf-query -c xfce4-screensaver --list
 ```
-
-    /lock/enabled
-    /saver/mode
-    /saver/themes/list
-
-
-
-```bash
-xfconf-query -c xfce4-screensaver --property /saver/mode
+```
+/lock/enabled
+/saver/mode
+/saver/themes/list
 ```
 
-    1
-
+```sh
+xfconf-query -c xfce4-screensaver --property /saver/mode
+```
+```
+1
+```
 
 ## `~/.config/xfce4`
 
-The XML files the docs speak of seem to be in `~/.config`
+The XML files the docs speak of are in `~/.config`
 
 
-```bash
+```sh
 cd ~/.config/xfce4/xfconf && find
 ```
-
-    .
-    ./xfce-perchannel-xml
-    ./xfce-perchannel-xml/xfce4-desktop.xml
-    ./xfce-perchannel-xml/xfce4-panel.xml
-    ./xfce-perchannel-xml/xfce4-settings-editor.xml
-    ./xfce-perchannel-xml/xfce4-screensaver.xml
-    ./xfce-perchannel-xml/keyboard-layout.xml
-    ./xfce-perchannel-xml/xfce4-power-manager.xml
-    ./xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    ./xfce-perchannel-xml/xfce4-settings-manager.xml
-    ./xfce-perchannel-xml/xfce4-session.xml
-    ./xfce-perchannel-xml/xfce4-appfinder.xml
-    ./xfce-perchannel-xml/keyboards.xml
-    ./xfce-perchannel-xml/thunar.xml
-    ./xfce-perchannel-xml/xfce4-terminal.xml
-    ./xfce-perchannel-xml/xfwm4.xml
-    ./xfce-perchannel-xml/displays.xml
-    ./xfce-perchannel-xml/xsettings.xml
-
-
-
-```bash
-
+```
+.
+./xfce-perchannel-xml
+./xfce-perchannel-xml/xfce4-desktop.xml
+./xfce-perchannel-xml/xfce4-panel.xml
+./xfce-perchannel-xml/xfce4-settings-editor.xml
+./xfce-perchannel-xml/xfce4-screensaver.xml
+./xfce-perchannel-xml/keyboard-layout.xml
+./xfce-perchannel-xml/xfce4-power-manager.xml
+./xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+./xfce-perchannel-xml/xfce4-settings-manager.xml
+./xfce-perchannel-xml/xfce4-session.xml
+./xfce-perchannel-xml/xfce4-appfinder.xml
+./xfce-perchannel-xml/keyboards.xml
+./xfce-perchannel-xml/thunar.xml
+./xfce-perchannel-xml/xfce4-terminal.xml
+./xfce-perchannel-xml/xfwm4.xml
+./xfce-perchannel-xml/displays.xml
+./xfce-perchannel-xml/xsettings.xml
 ```

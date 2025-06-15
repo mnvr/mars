@@ -1,10 +1,10 @@
 ## Install
 
-Minimal install is just `setup-alpine`, then `setup-desktop`. The
-following is what _I_ did last time.
+Minimal install is just `setup-alpine`, then `setup-desktop`. The following is
+what _I_ did last time.
 
-> Likely outdated, read what the [official
-  docs](https://alpinelinux.org/) have to say.
+> Likely outdated, read what the [official docs](https://alpinelinux.org/) have
+  to say.
 
 ```sh
 setup-alpine
@@ -27,38 +27,38 @@ Simple shells scripts located in `/usr/sbin`.
 
 * <https://wiki.alpinelinux.org/wiki/Alpine_setup_scripts>
 
-
-```bash
+```sh
 ls /usr/sbin | grep setup-
 ```
+```
+setup-acf
+setup-alpine
+setup-apkcache
+setup-apkrepos
+setup-bootable
+setup-desktop
+setup-devd
+setup-disk
+setup-dns
+setup-hostname
+setup-interfaces
+setup-keymap
+setup-lbu
+setup-mta
+setup-ntp
+setup-proxy
+setup-sshd
+setup-timezone
+setup-user
+setup-wayland-base
+setup-xen-dom0
+setup-xorg-base
+```
 
-    setup-acf
-    setup-alpine
-    setup-apkcache
-    setup-apkrepos
-    setup-bootable
-    setup-desktop
-    setup-devd
-    setup-disk
-    setup-dns
-    setup-hostname
-    setup-interfaces
-    setup-keymap
-    setup-lbu
-    setup-mta
-    setup-ntp
-    setup-proxy
-    setup-sshd
-    setup-timezone
-    setup-user
-    setup-wayland-base
-    setup-xen-dom0
-    setup-xorg-base
-
-These can be used also after installation. For example, to set the
-system's hostname, `hostname mars` doesn't persist the changes,
-`setup-hostname` does (it doesn't even invoke `hostname`, only sets
-`/etc/hostname`, and is quite trivial, just is "proper").
+These can be used also after installation. For example, to set the system's
+hostname, `hostname mars` doesn't persist the changes, `setup-hostname` does (it
+doesn't even invoke `hostname`, only sets `/etc/hostname`, and is quite trivial,
+just is "proper").
 
 ## sys mode
 
