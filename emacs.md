@@ -13,9 +13,12 @@ friend), it means "no X".
 
 ## Help
 
-* M-x help
-* M-x apropos
+* M-x help (C-h ?)
+* M-x help-quick (C-h C-q)
+* M-x apropos (C-h a)
 * M-x describe-function (C-h f)
+
+Help buffers can be closed with `q`.
 
 ## Shell command
 

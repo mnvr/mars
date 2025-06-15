@@ -230,8 +230,8 @@ reusing it for invocations.
 
 ## Thunar
 
-File manager, named after the German god of Thunder (who is apparently
-the same entity as the more widely known Norse god Thor).
+File manager, named after the German god of Thunder (who is apparently the same
+entity as the more widely known Norse god Thor).
 
 `thunar` without arguments does the same thing as `exo-open .`, opening the
 current folder in the file manager.
@@ -250,8 +250,8 @@ lrwxrwxrwx    1 root     root           6 May 17 17:01 /usr/bin/Thunar -> thunar
 
 - `exo-open ~` - File URLs open in Thunar.
 - `exo-open https://mnvr.in` - HTTPS URLs open in the default web browser.
-- `exo-open --launch WebBrowser mnvr.in` - We all need a little help
-  sometimes, like `exo-open` does for URLs without a scheme.
+- `exo-open --launch WebBrowser mnvr.in` - We all need a little help sometimes,
+  like `exo-open` does for URLs without a scheme.
 
 ## Keyboard shortcuts
 
@@ -261,7 +261,8 @@ xfce4-keyboard-settings &
 
 * Thunar - `Super + E` (what's [Super](super-and-hyper)?)
 * Appfinder - `Super + R`
-* `xfce4-session-logout` - `Ctrl + Alt + Delete` (Requires Fn on MacBook keyboards)
+* `xfce4-session-logout` - `Ctrl + Alt + Delete` (Requires Fn on MacBook
+  keyboards)
 
 ## xfwm4
 
