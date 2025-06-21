@@ -279,7 +279,7 @@ Changing the wallpaper
 ```sh
 xfconf-query --channel xfce4-desktop \
   --property '/backdrop/screen0/monitorVirtual-1/workspace0/last-image' \
-  --type string --create --set '/home/m/Downloads/example.jpg'
+  --type string --create --set '/home/m/Downloads/pattern.svg'
 ```
 
 Reset it using `--reset`.

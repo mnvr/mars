@@ -30,7 +30,7 @@ Then put the actual customizations in `~/.ashrc`, e.g.
 export HISTSIZE=9999999
 ```
 
-See [env#ENV](env#ENV) for the mechanism this is using.
+See [shells](shells#ENV) for the mechanism this is using.
 
 ## Moving on
 

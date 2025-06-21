@@ -12,7 +12,7 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [Installing](install)
 * [git](git)
 * [apk](apk) - Alpine package keeper
-* [Shell](shell)s - [ash](ash) (default), [zsh](zsh)
+* [Shells](shells) - [ash](ash) (default), [zsh](zsh)
     - [env](env) - Environment variables
 * Documentation - [`apk add docs`](docs)
 * [History](history-alpine)

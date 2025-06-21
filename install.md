@@ -16,7 +16,7 @@ setup-alpine
 reboot
 
 vi /etc/apk/repositories # enable community, https
-apk add doas docs emacs-nox git curl file
+apk add doas emacs-nox git
 echo "permit nopass :m" >>/etc/doas.d/doas.conf
 setup-desktop # xfce
 ```
