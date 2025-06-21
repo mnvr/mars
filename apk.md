@@ -74,7 +74,7 @@ apk search cmd:dig
 More info in
 [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).
 
-## apk contents
+## apk info -L
 
 The `--contents` flag (aka `-L`) to `apk info` can be used to list the files
 included in the package.
@@ -88,4 +88,13 @@ etc/doas.conf
 usr/bin/doas
 ```
 
-This only works if the package is already installed.
+This only works if the package is already installed. To check whether a package
+is installed, use `--installed` (nick `-e`), which exits non-zero if it is not
+installed, otherwise prints the name of the package.
+
+```sh
+apk info --installed doas
+```
+```
+doas
+```

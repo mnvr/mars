@@ -269,3 +269,20 @@ xfce4-keyboard-settings &
 Window manager.
 
 * Alt + Tab - Cycle through windows.
+
+## xfce4-desktop
+
+Desktop. The thing that shows the background, and houses the "desktop" icons.
+
+Changing the wallpaper
+
+```sh
+xfconf-query --channel xfce4-desktop \
+  --property '/backdrop/screen0/monitorVirtual-1/workspace0/last-image' \
+  --type string --create --set '/home/m/Downloads/example.jpg'
+```
+
+Reset it using `--reset`.
+
+The desktop program displays a static background image by default, because that
+is what it is programmed to do, but we are programmers, we can reprogram it too.
