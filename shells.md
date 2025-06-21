@@ -122,8 +122,27 @@ This is indeed the mechanism we _need_ to use for the default shell that comes
 with Alpine, the busybox [ash](ash#customizing).
 
 ```sh
-export ENV=$HOME/.ashrc ash
+export ENV=$HOME/.ashrc
 ```
+
+> What happens to the login shell itself? The `ENV` will come into effect for
+> any subsequent shells launched when the `ENV` is set, but for the login shell
+> itself, `/path/to/our/custom/shell/commands` will never be sourced since `ENV`
+> wasn't set when it was started. Or will it?
+>
+> Turns out (not coincidentally, likely) that this scenario is handled, at least
+> by ash. From the source ([ash.c](https://git.busybox.net/busybox/tree/shell/ash.c#n14707)):
+>
+> ```c
+> /*
+>  * Read /etc/profile, ~/.profile, $ENV.
+>  */
+> static void read_profile(...
+> ```
+>
+> Since they are read in sequence, and since we set ENV in `~/.profile`, `$ENV`
+> will be set and sourced at the end of the sequence, and everything will work
+> out in the end.
 
 However, since this is a basic requirement, its bigger siblings like bash and
 zsh provide a way to skip this two step dance by reading special "rc" files
