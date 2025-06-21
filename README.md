@@ -2,7 +2,6 @@ Notes on my workstation, Mars.
 
 * Alpine Linux
 * Emacs
-* Fish
 
 ## Alpine Linux
 
@@ -13,7 +12,8 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [Installing](install)
 * [git](git)
 * [apk](apk) - Alpine package keeper
-* Shells - [ash](ash) (default), [fish](fish)
+* [Shell](shell)s - [ash](ash) (default), [zsh](zsh)
+    - [env](env) - Environment variables
 * Documentation - [`apk add docs`](docs)
 * [History](history-alpine)
 * [Xfce](xfce) - Desktop environment

@@ -22,7 +22,6 @@ multiple TTYs (both "real" ones, the gettys launched by init on system startup,
 and "pseudo" ones, one for each terminal emulator
 ([xfce4-terminal](xterm). Simulacra and Simulation).
 
-
 ```sh
 ps -ef | grep '[g]etty'
 ```
@@ -48,3 +47,10 @@ tty
 ```
 /dev/pts/9
 ```
+
+## console
+
+- The console is the seat attached to the computer.
+- ttys are additional seats connected to the computer.
+
+Both allow us to login textually.

@@ -30,9 +30,13 @@ Then put the actual customizations in `~/.ashrc`, e.g.
 export HISTSIZE=9999999
 ```
 
+See [env#ENV](env#ENV) for the mechanism this is using.
+
 ## Moving on
 
-The busybox ash does not support brace expansion. It is eminently
-usable, but for the main workstation it is apropos to get a nicer
-shell. Having already lived in bash and zsh for few years each, it's
-time to move on to [fish](fish), give it a try.
+The busybox ash does not support brace expansion. It is eminently usable, but
+for the main workstation it is apropos to get a nicer shell. Having already
+lived in bash and zsh for few years each, it's time to move on to [fish](fish),
+give it a try.
+
+Update: I did give it a try. It was too friendly. [zsh](zsh) it is then.
