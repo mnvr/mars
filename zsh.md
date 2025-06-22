@@ -214,3 +214,103 @@ chpwd () {
   test -t 1 && case $TERM in; *xterm*) print -Pn "\e]2;%~\a";; esac
 }
 ```
+
+## Feature tour
+
+A stroll through the [intro](https://zsh.sourceforge.io/Intro).
+
+## Globbing
+
+> Otherwise known as _globbing_, filename generation is quite extensive in zsh.
+
+* `ls *.c`
+* `ls *.[co]`
+* `ls *.[^co]` (negation)
+
+`<x-y>` matches a range of integers, both ar optional.
+
+```sh
+ls /dev/tty<->
+```
+```
+/dev/tty0   /dev/tty19	/dev/tty29  /dev/tty39	/dev/tty49  /dev/tty59
+/dev/tty1   /dev/tty2	/dev/tty3   /dev/tty4	...
+```
+
+`**/*` does a recursive search.
+
+### `$RANDOM`
+
+```sh
+echo $RANDOM $[$RANDOM%100]
+```
+```
+699 8
+```
+
+### Directory stacks
+
+`pushd`, `popd`, and `dirs` to list.
+
+`pushd` by itself swaps the top two.
+
+### Command substitution
+
+* `$(...)` is the nestable sibling of backticks.
+* `<(...)` creates a named pipe (FIFO)
+
+### alias
+
+`alias`
+
+### History
+
+* csh-style ! history
+* `fc`
+* `r` (redo the last command, with optional `x=y` substitutions).
+
+### ZLE
+
+zsh's command line editor, ZLE. emulates emacs.
+
+* ^P, ^N
+* Incremental search, ^R, including within the command being typed.
+* TAB completion works with parameter names `echo $HOME<TAB>`, options `setopt
+  noc<TAB>` and bindings `bindkey '^X^X' pu<TAB>`.
+
+`bindkey` lists default bindings.
+
+* C-f forward-char, C-b backward-char
+* M-f forward-word, M-b backward-word
+* C-d delete-char, C-h backward
+* M-d delete-word
+* C-w backward-kill-word
+* M-l downcase-word, M-u upcase-word
+* C-i expand-or-complete (same as TAB)
+* C-j accept line (same as RET or C-m)
+* C-r / C-s history-incremental-search-(back / forward)
+* C-u kill-whole-line
+* C-v quoted-insert
+* C-x = what-cursor-position
+* C-x g list-expand
+* C-x e expand-word
+* C-y yank
+* M-0 .. M-9 digit argument
+* M-h run-help (open man for the current command)
+* M-a accept-and-hold (execute command, but retain it in buffer)
+* M-q push-line (push buffer, and pop it the next time prompt is printed)
+* M-' (shell) quote-line
+* M-p history-search-backwards (will search backwards through history for lines
+  beginning with what we've typed so far).
+
+### Bindings
+
+These editor commands are functions bound by default to certain keys.
+
+```
+expand-or-complete	 TAB
+push-line		 M-q
+run-help		 M-h
+accept-and-hold		 M-a
+quote-line		 M-'
+```
