@@ -268,7 +268,18 @@ xfce4-keyboard-settings &
 
 Window manager.
 
-* Alt + Tab - Cycle through windows.
+* `M-tab` - Cycle through windows.
+
+By default, cycling shows a preview of the window. If needed, this can be turned
+off by:
+
+```sh
+xfconf-query -c xfwm4 -p /general/cycle_preview -n -t bool -s false
+```
+
+* `M-space` brings up the window operations menu.
+* `C-M-d` - Show desktop.
+* `M-F4` - Close window.
 
 ## xfce4-desktop
 
