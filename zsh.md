@@ -219,7 +219,7 @@ chpwd () {
 
 A stroll through the [intro](https://zsh.sourceforge.io/Intro).
 
-## Globbing
+### Globbing
 
 > Otherwise known as _globbing_, filename generation is quite extensive in zsh.
 

@@ -20,6 +20,16 @@ friend), it means "no X".
 
 Help buffers can be closed with `q`.
 
+## Keymaps
+
+Generally,
+
+* C-x prefixes commands that work same across modes.
+* C-c followed by alpha is for user commands.
+* C-c rest is for mode specific commands.
+
+See info page "Key Binding Conventions"
+
 ## Shell command
 
 * M-x shell-command. C-u inserts output. `M-!`
