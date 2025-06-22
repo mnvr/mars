@@ -150,6 +150,9 @@ zsh provide a way to skip this two step dance by reading special "rc" files
 automatically, whether they are invoked as login shells or not. For example, zsh
 will read `~/.zshrc`.
 
+> zsh reads /etc/profile, ~/.profile and $ENV only if it is running in sh
+> compatibility mode.
+
 ## X
 
 When logging in using a display manager, we never run a shell (until we do), so
