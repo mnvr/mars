@@ -94,6 +94,31 @@ From zshall(1):
 > The fpath parameter will be searched to find the function definition when the
 > function is first referenced.
 
+```sh
+echo $fpath
+```
+```
+/usr/local/share/zsh/site-functions /usr/share/zsh/site-functions ...
+```
+
+From the [intro](https://zsh.sourceforge.io/Intro/intro_4.html):
+
+> Instead of defining a lot of functions in your `.zshrc`, all of which you may
+> not use, it is often better to use the `autoload` builtin. The idea is, you
+> create a directory where function definitions are stored, declare the names in
+> your `.zshrc`, and tell the shell where to look for them. Whenever you
+> reference the funtion, the shell will automatically load it into memory.
+
+The `-U` prevents alias expansion, something recommended in zshall(1):
+
+> The usual alias expansion during reading will be supressed if the autoload
+> builtin or its equivalent is given the option -U. This is recommended for the
+> use of functions supplied with the zsh distribution.
+
+The `-z` flag turns off ksh compatibility autoloading (z for "zsh").
+
+Built in functions are thus often declared as `autoload -Uz`.
+
 ## Customization
 
 ### History
@@ -134,12 +159,6 @@ From [the mysteries of completion<sup>FAQ</sup>](https://zsh.sourceforge.io/FAQ/
 > automatically for completion in particular contexts (e.g. there is a function
 > called `_cd` to handle completion for the `cd` command); all we need to do is
 > to arrage for it to be loaded by putting `autoload -U compinit; compinit`
-
-The `-U` prevents alias expansion, something recommended in zshall(1):
-
-> The usual alias expansion during reading will be supressed if the autoload
-> builtin or its equivalent is given the option -U. This is recommended for the
-> use of functions supplied with the zsh distribution.
 
 zsh does some completion even if we don't do `autoload -U compinit; compinit`,
 but that is (I presume) using the older deprecated completion system, not the
