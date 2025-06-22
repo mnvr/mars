@@ -23,7 +23,8 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [lightdm](lightdm) - Display manager
 * [UEFI](uefi) - Firmware
 * [GTK](gtk) - Window toolkit
-* File viewers - [cat](cat), [more (default)](more-busybox)
+* Tools - [busybox](busybox) and [beyond](tools)
+* File viewer - [cat](cat)
 * [Upgrading](upgrade)
 * ...[footnotes](footnotes)
 
