@@ -166,3 +166,51 @@ newer "elegant" (new) completion system (called compsys).
 
 We can see the difference in trying to complete substrings. `ls /e/passTAB` does
 nothing by default, but will complete to `ls /etc/passwd` after `compinit`ing.
+
+## Prompts
+
+See [Prompting](https://zsh.sourceforge.io/Intro/intro_14.html#SEC14) in the
+intro, and `PROMPT` in zshall(1).
+
+```sh
+PROMPT='%~ $ '; RPROMPT='%(?..[%?]) %(1j.%j.)'
+```
+
+* `%~` is the tildified current directory.
+* `RPROMPT` is on the right.
+* `%(?..%?)` shows the last exit status if non zero.
+* `%(1j.%j.)` shows the number of jobs if at least 1.
+
+Related is wanting to display the current directory in the tab bar. The
+[FAQ](https://zsh.sourceforge.io/FAQ/zshfaq03.html#l24) mentions:
+
+> You should use the special function `chpwd`, which is called by the shell when
+> the directory changes. The following checks that standard output is a
+> terminal, then puts the directory in the title bar if the terminal is an xterm
+> etc.
+>
+> ```sh
+> chpwd () {
+>   [[ -t 1 ]] || return
+>   case $TERM in
+>     *xterm*) print -Pn "\e]2;%~\a"
+>       ;;
+>   esac
+> }
+>
+> The -P option tells print to treat its arguments like a prompt string.
+>
+> Note that when xterm starts up you will probably want to call `chpwd`
+> directly.
+
+The -n option supresses the terminating newline, as with echo. The "\e]2;"
+starts the escape sequence to communicate with the terminal emulator, the "\a"
+ends it.
+
+Something like this suffices for me:
+
+```
+chpwd () {
+  test -t 1 && case $TERM in; *xterm*) print -Pn "\e]2;%~\a";; esac
+}
+```

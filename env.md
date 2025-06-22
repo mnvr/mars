@@ -57,7 +57,7 @@ when starting the shell running in the terminal:
 > - **WINDOWID**: The X11 window identifier of the terminal
 
 ```
-TERM=dumb
+TERM=xterm-256color
 COLORTERM=truecolor
 DISPLAY=:0.0
 WINDOWID=8389164
