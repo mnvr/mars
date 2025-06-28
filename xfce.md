@@ -297,3 +297,77 @@ Reset it using `--reset`.
 
 The desktop program displays a static background image by default, because that
 is what it is programmed to do, but we are programmers, we can reprogram it too.
+
+## Theme
+
+From the [Xfce wiki](https://wiki.xfce.org/howto/install_new_themes):
+
+> There are 5 different themes you can adjust in Xfce:
+>
+> 1. Window decorations,
+> 2. GTK interfaces,
+> 3. Cursors,
+> 4. Notifications,
+> 5. Icons.
+
+Window decoration themes go to `~/.local/share/themes/<theme_name>/xfwm4` and
+can be selected in Window Manager settings.
+
+GTK themes theme the toolkit (buttons, textfields, etc). These go in
+`~/.local/share/themes/<theme_name>/gtk-3.0` and can be selected in Appearance
+settings.
+
+Cursor and icons go to `~/.icons/<theme_name>`.
+
+System wide variants for all live in `/usr/share/{themes,icons}`.
+
+### Defaults
+
+The Window Manager decoration theme:
+
+```sh
+xfconf-query -c xfwm4 -p /general/theme
+```
+```
+Default
+```
+
+"Default" is both a xfwm4 and GTK-3 theme
+```sh
+find /usr/share/themes/ -mindepth 2 -type d
+```
+```
+/usr/share/themes/Default-hdpi/xfwm4
+/usr/share/themes/Default/xfwm4
+/usr/share/themes/Default/gtk-3.0
+/usr/share/themes/Moheli/xfwm4
+/usr/share/themes/Daloa/xfwm4
+/usr/share/themes/Emacs/gtk-3.0
+/usr/share/themes/Kokodi/xfwm4
+/usr/share/themes/Default-xhdpi/xfwm4
+```
+
+The (current, xfce 4.20) default GTK theme is Adwaita, and so is the icon
+theme. No cursor theme seems to be explicitly set.
+
+```sh
+xfconf-query -c xsettings -p /Net/ThemeName; \
+xfconf-query -c xsettings -p /Net/IconThemeName; \
+xfconf-query -c xsettings -p /Gtk/CursorThemeName
+```
+```
+Adwaita
+Adwaita
+
+```
+
+### Dark mode
+
+"Dark mode" is just switching to a "dark" GTK variant the GTK theme. These are
+identified by the `-dark` suffix.
+
+Firefox will automatically use the current GTK theme mode.
+
+This switch can be scripted by using `xfconf-query` to set
+`xsettings/Net/ThemeName`. [Arch
+wiki](https://wiki.archlinux.org/title/Dark_mode_switching) lists more options.
