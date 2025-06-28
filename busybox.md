@@ -33,5 +33,5 @@ This is similar to the reasoning for moving on from the default [shell](ash),
 and also a conclusion I reached when trying to get [man pages](docs) for the
 applets that come with busybox.
 
-[tools](tools) does the (reverse) swap of busybox for its equivalents that are
-common for interactive use.
+[coreutils](coreutils) does the (reverse) swap of busybox for its equivalents
+that are common for interactive use.

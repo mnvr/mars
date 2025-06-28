@@ -22,16 +22,30 @@ apk info --rdepends fontconfig
 fontconfig-2.15.0-r3 is required by:
 font-dejavu-2.37-r6
 font-misc-misc-1.1.3-r1
-font-cursor-misc-1.0.4-r1
+...
 gtk+3.0-3.24.49-r1
 xfce4-settings-4.20.1-r0
 pango-1.56.3-r0
 cairo-1.18.4-r0
 gtk4.0-4.18.5-r0
-ffmpeg-libavfilter-6.1.2-r2
-libxft-2.3.8-r3
-webkit2gtk-4.1-2.48.1-r1
+...
 firefox-139.0-r0
-poppler-25.04.0-r0
-libass-0.17.3-r0
+```
+
+Fontconfig provides (`apk info --provides fontconfig`) various fc-prefixed
+programs:
+
+```sh
+$ find /usr/bin -name 'fc-*' -maxdepth 1
+```
+```
+/usr/bin/fc-cache
+/usr/bin/fc-query
+/usr/bin/fc-list
+/usr/bin/fc-pattern
+/usr/bin/fc-conflist
+/usr/bin/fc-cat
+/usr/bin/fc-match
+/usr/bin/fc-validate
+/usr/bin/fc-scan
 ```
