@@ -74,7 +74,7 @@ apk search cmd:dig
 More info in
 [docs.alpinelinux.org/user-handbook](https://docs.alpinelinux.org/user-handbook/0.1a/Working/apk.html#_searching_for_packages).
 
-## apk info -L
+## Package contents
 
 The `--contents` flag (aka `-L`) to `apk info` can be used to list the files
 included in the package.
@@ -98,3 +98,33 @@ apk info --installed doas
 ```
 doas
 ```
+
+The `--provides` flag is similar to `--installed`, but (a) it lists only the
+binaries and libraries provided by the package, and (b) works even if the
+package is not installed.
+
+```sh
+apk info --provides doas
+```
+```
+doas-6.8.2-r8 provides:
+cmd:doas=6.8.2-r8
+```
+
+## Rdepends
+
+To see which packages depend on a given package, use the `--rdepends` (-r)
+
+```sh
+apk info --rdepends font-dejavu
+```
+```
+font-dejavu-2.37-r6 is required by:
+xfce4-4.20-r0
+```
+
+`apk dot` prints a dependency graph, parseable by Graphviz ideally, but also
+humans in a pinch.
+
+
+
