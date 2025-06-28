@@ -314,3 +314,9 @@ run-help		 M-h
 accept-and-hold		 M-a
 quote-line		 M-'
 ```
+
+## Usage
+
+### fc
+
+Fix command. invokes $EDITOR on last command.

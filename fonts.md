@@ -36,16 +36,44 @@ Fontconfig provides (`apk info --provides fontconfig`) various fc-prefixed
 programs:
 
 ```sh
-$ find /usr/bin -name 'fc-*' -maxdepth 1
+apk info --quiet --provides fontconfig | sed -En '/cmd:/s/cmd:(.*)=.*/\1/p' | paste - -
 ```
 ```
-/usr/bin/fc-cache
-/usr/bin/fc-query
-/usr/bin/fc-list
-/usr/bin/fc-pattern
-/usr/bin/fc-conflist
-/usr/bin/fc-cat
-/usr/bin/fc-match
-/usr/bin/fc-validate
-/usr/bin/fc-scan
+fc-cache	fc-cat
+fc-conflist	fc-list
+fc-match	fc-pattern
+fc-query	fc-scan
+fc-validate	
+```
+
+`fc-match` matches available fonts.
+
+```sh
+fc-match sans
+```
+```
+DejaVuSans.ttf: "DejaVu Sans" "Book"
+```
+
+`fc-list` lists fonts available to programs using fontconfig.
+
+```sh
+fc-list "DejaVu Sans"
+```
+
+`fc-cache` rebuilds the font information cache files. The `-v` flag asks it to
+talk about what it is doing.
+
+## Installing
+
+Place TTF files in `~/.local/share/fonts`. If needed, `fc-cache` to refresh.
+
+### Fira Code
+
+```sh
+mkdir /tmp/fira && cd /tmp/fira
+wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+unzip Fira*.zip
+mkdir -p ~/.local/share/fonts/FiraCode
+mv ttf ~/.local/share/fonts/FiraCode
 ```
