@@ -70,10 +70,27 @@ Place TTF files in `~/.local/share/fonts`. If needed, `fc-cache` to refresh.
 
 ### Fira Code
 
+Fira was a font Mozilla developed for Firefox OS, which is no more. The
+monospace variant of the font survived and blossomed into Fira Code, which adds
+progarmming ligature support.
+
 ```sh
 mkdir /tmp/fira && cd /tmp/fira
 wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
 unzip Fira*.zip
 mkdir -p ~/.local/share/fonts/FiraCode
 mv ttf ~/.local/share/fonts/FiraCode
+```
+
+### Advaita Sans
+
+Adwaita Sans is a Inter clone by the GNOME folks.
+
+## Using
+
+Change the default in "Appearance" settings:
+
+```sh
+xfconf-query -c xsettings -np /Gtk/FontName -t string -s 'Adwaita Sans 10'
+xfconf-query -c xsettings -np /Gtk/MonospaceFontName -t string -s 'Fira Code 10'
 ```

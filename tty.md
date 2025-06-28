@@ -35,6 +35,8 @@ root      2503     1  0 08:53 tty6     00:00:00 /sbin/getty 38400 tty6
 root      2504     1  0 08:53 ?        00:00:00 /sbin/getty -L 0 ttyAMA0 vt100
 ```
 
+Usually, these ttys can be switched to by using `Ctrl-Alt-1`, `Ctrl-Alt-2` etc.
+
 ### pty
 
 pty is a user space terminal (they're all pseudo, the ttys too, but these are
