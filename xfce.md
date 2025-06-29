@@ -405,7 +405,7 @@ switch the Window Decorations theme that goes along with the theme (if any).
 xfconf-query -c xsettings -p /Xfce/SyncThemes -t bool -ns true
 ```
 
-Also disable the panel dark mode
+Also disable the panel dark mode, so that it follows the system theme.
 
 ```sh
 xfconf-query -c xfce4-panel -p /panels/dark-mode -t bool -ns false
@@ -425,6 +425,11 @@ can be done by resetting the value using xfconf.
 xfconf-query -c xsettings -p /Net/ThemeName -r
 ```
 
+### Workaround for Adwaita Light
+
 Unfortunately, currently (Xfce 4.20) there is bug preventing the Adwaita light
 mode from being usable (Xfce forum - [Xfce doesn't apply Adwaita white
 theme](https://forum.xfce.org/viewtopic.php?id=18551))
+
+As a workaround, copy the upstream theme from `/usr/share/themes/adw-gtk`,
+rename the variant in `index.theme`, and remove `gtk-3.0/gtk-dark.css`.
