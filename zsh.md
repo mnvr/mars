@@ -167,6 +167,17 @@ newer "elegant" (new) completion system (called compsys).
 We can see the difference in trying to complete substrings. `ls /e/passTAB` does
 nothing by default, but will complete to `ls /etc/passwd` after `compinit`ing.
 
+### zcompdump
+
+By default, zsh will put the file where it caches completions into
+`~/.zcompdump`. To prevent it from littering, we can tell it where to store
+these dumps when initializing it.
+
+```sh
+mkdir ~/.cache/zsh
+compinit -d ~/.cache/zsh/zcompdump
+```
+
 ## Prompts
 
 See [Prompting](https://zsh.sourceforge.io/Intro/intro_14.html#SEC14) in the
