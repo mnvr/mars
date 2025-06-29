@@ -441,3 +441,10 @@ for reasons that I don't understand.
 ```sh
 xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk
 ```
+
+## Exo
+
+Exo is an Xfce internal library. As a user, we know of its existence in two ways:
+
+* **exo-desktop-item-edit**, an editor for .desktop files
+* **exo-open**, Xfce's xdg-open.

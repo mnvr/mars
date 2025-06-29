@@ -47,3 +47,14 @@ More of them
 
 * **XDG_RUNTIME_DIR**, a temporary directory accessible only to the user, and
   which gets cleared on logout. e.g. `/run/user/1000`
+
+## xdg-open
+
+Every problem in programming can be solved by a level of indirection. Each
+desktop environment seems to have a program which can be used to open files or
+URLs schemes using the user's preferred application. For Xfce, it is `exo-open`.
+
+`xdg-open` is a script which is an indirection over this indirection - it'll
+invoke the appropriate `*-open` tool for the current desktop environment.
+
+As of Xfce 4.20 I don't seem to have it installed by default.
