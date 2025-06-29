@@ -433,3 +433,11 @@ theme](https://forum.xfce.org/viewtopic.php?id=18551))
 
 As a workaround, copy the upstream theme from `/usr/share/themes/adw-gtk`,
 rename the variant in `index.theme`, and remove `gtk-3.0/gtk-dark.css`.
+
+As a even simpler workaround, set the theme to `adw-gtk`. This name is
+incorrect, it should be "adw-gtk3" (for the light theme), but it seems to work
+for reasons that I don't understand.
+
+```sh
+xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk
+```
