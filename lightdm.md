@@ -177,12 +177,11 @@ apk info --who-owns /usr/share/xgreeters/lightdm-gtk-greeter.desktop
 ```
 
 So when I chose Xfce, `/usr/sbin/setup-desktop` installed both lightdm and
-lightdm-gtk-greeter, the latter installing this desktop file which lightdm uses
+lightdm-gtk-greeter, the latter installing this .desktop file which lightdm uses
 unconfigured (I presume because it's the only one).
 
 There is also a `~/.dmrc`, but from what I gather, lightdm is the one which
 writes it for us, and going by the creation time, on first login.
-
 
 ```sh
 cat ~/.dmrc
@@ -190,4 +189,50 @@ cat ~/.dmrc
 ```
 [Desktop]
 Session=xfce
+```
+
+`lightdm-gtk-greeter`, on success, launches the only xsession it can find
+
+```sh
+cat /usr/share/xsessions/xfce.desktop | grep -v -e Name -e Comment -e Keywords
+```
+```
+[Desktop Entry]
+Version=1.0
+Exec=startxfce4
+Icon=
+Type=Application
+```
+
+From [Running Xfce<sup>docs.xfce.org</sup>](https://docs.xfce.org/xfce/getting-started):
+
+> Running Xfce
+>
+> * Display managers: Xfce4-session installs a file that should add an option
+>  for display managers to run an Xfce session.
+>
+> * Command line: Use `startxfce4` to start an Xfce session.
+
+```sh
+apk info --who-owns /usr/share/xsessions/xfce.desktop
+```
+```
+/usr/share/xsessions/xfce.desktop is owned by xfce4-session-4.20.2-r0
+```
+
+Once `startxfce4` is running, the ball is in Xfce's court.
+
+## dm-tool
+
+`dm-tool` can be used to communicate with `lightdm`.
+
+```sh
+dm-tool
+```
+```
+Seat0
+  CanSwitch=true
+  HasGuestAccount=false
+  Session2
+    UserName='m'
 ```

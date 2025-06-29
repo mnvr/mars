@@ -20,8 +20,8 @@ should place their files.
 > files should be looked for by defining one or more base directories relative
 > to which files should be located.
 
-Of the four most important ones, I seem to have environment variables for the
-following:
+Of the four most important ones, there are [environment variables](env) (set by
+`/etc/xdg/xfce4/xinitrc`) for the following:
 
 * **XDG_CONFIG_HOME**, default `~/.config`
 * **XDG_CACHE_HOME**, default `~/.cache`

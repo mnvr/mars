@@ -47,6 +47,24 @@ LANG=C.UTF-8
 LC_COLLATE=C
 ```
 
+Set by startxfce4 when it is started by [lightdm](lightdm):
+
+```sh
+cat /etc/xdg/xfce4/xinitrc | grep 'export XDG'                                                     2
+  export XDG_MENU_PREFIX
+  export XDG_CURRENT_DESKTOP
+  export XDG_CONFIG_HOME
+  export XDG_CACHE_HOME
+```
+
+Resolved:
+```
+XDG_MENU_PREFIX=xfce-
+XDG_CURRENT_DESKTOP=XFCE
+XDG_CONFIG_HOME=/home/m/.config
+XDG_CACHE_HOME=/home/m/.cache
+```
+
 Set by
 [xfce4-terminal<sup>docs.xfce.org</sup>](https://docs.xfce.org/apps/xfce4-terminal/getting-started)
 when starting the shell running in the terminal:
@@ -63,18 +81,10 @@ DISPLAY=:0.0
 WINDOWID=8389164
 ```
 
-Set by `~/.profile`:
+Set by `~/.zshrc`:
 
 ```
-ENV=/home/m/.ashrc
-```
-
-Set by `~/.ashrc`:
-
-```
-HISTSIZE=9999999
-EDITOR=emacs
-PS1=\[\e]0;\w\a\]\w $
+export EDITOR=emacs
 ```
 
 ---
@@ -94,13 +104,9 @@ SESSION_MANAGER=local/mars:@/tmp/.ICE-unix/2458,unix/mars:/tmp/.ICE-unix/2458
 SHLVL=5
 VTE_VERSION=8002
 XAUTHORITY=/home/m/.Xauthority
-XDG_CACHE_HOME=/home/m/.cache
 XDG_CONFIG_DIRS=/etc/xdg
-XDG_CONFIG_HOME=/home/m/.config
-XDG_CURRENT_DESKTOP=XFCE
 XDG_DATA_DIRS=/usr/local/share:/usr/share
 XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/m
-XDG_MENU_PREFIX=xfce-
 XDG_RUNTIME_DIR=/run/user/1000
 XDG_SEAT=seat0
 XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
