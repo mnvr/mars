@@ -43,9 +43,9 @@ apk update
 We don't need to do this usually, other apk commands that depend on the
 repository index will automatically do this once the 4 hour cache expires.
 
-## `/etc/apk/world`
+## The "world"
 
-List of all installed packages:
+List of all installed packages we asked to be installed (a la `brew leaves`):
 
 ```sh
 cat /etc/apk/world
@@ -58,6 +58,18 @@ From
 > file" available in `/etc/apk/world`. It is safe to edit by hand. If you've
 > edited it by hand, you may run `apk add` with no arguments to bring the
 > package selection to a consistent state.
+
+To view all installed packages, including transitive deps,
+
+```sh
+apk info
+```
+
+The same can be viewed with more details by using `apk list -I`
+
+```sh
+diff <(apk info | wc -l) <(apk list --installed | wc -l)
+```
 
 ## apk search
 

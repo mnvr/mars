@@ -1,4 +1,4 @@
-# xfce
+# Xfce
 
 Desktop environment
 
@@ -347,7 +347,7 @@ find /usr/share/themes/ -mindepth 2 -type d
 /usr/share/themes/Default-xhdpi/xfwm4
 ```
 
-The (current, xfce 4.20) default GTK theme is Adwaita, and so is the icon
+The (current, Xfce 4.20) default GTK theme is Adwaita, and so is the icon
 theme. No cursor theme seems to be explicitly set.
 
 ```sh
@@ -371,3 +371,60 @@ Firefox will automatically use the current GTK theme mode.
 This switch can be scripted by using `xfconf-query` to set
 `xsettings/Net/ThemeName`. [Arch
 wiki](https://wiki.archlinux.org/title/Dark_mode_switching) lists more options.
+
+### Installing
+
+From [alpinelinux.org/wiki/Xfce](https://wiki.alpinelinux.org/wiki/Xfce):
+
+> It is necessary to add some theme files, to get a proper (themed)
+> appearance. By default, there is no theme and `Adwaita` icon in Appearance
+> settings, but Adwaita is missing some icons for Xfce.
+>
+> Install `adw-gtk3` package for basic themes and `adwaita-xfce-icon-theme`
+> package for basic icons.
+
+These packages seem to be already transitively installed (?), they show up in
+`apk info`. But they don't show up in Appearance settings, and an explicit
+install is needed.
+
+```sh
+apk add adwaita-xfce-icon-theme adw-gtk3
+```
+
+Now they show up in Appearance settings, and can be selected.
+
+```sh
+xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk3
+xfconf-query -c xsettings -p /Net/IconThemeName -t string -ns adwaita-xfce
+```
+
+The "Set matching Xfwm4 theme if there is one" toggle can be enabled to also
+switch the Window Decorations theme that goes along with the theme (if any).
+
+```
+xfconf-query -c xsettings -p /Xfce/SyncThemes -t bool -ns true
+```
+
+Also disable the panel dark mode
+
+```sh
+xfconf-query -c xfce4-panel -p /panels/dark-mode -t bool -ns false
+```
+
+### Adwaita, adwaita
+
+The default fallback theme, "Adwaita", comes with GTK3. The ones we just
+installed have similar but different name, "adw-gtk3" and "adw-gtk3-dark", and
+are also visually different (See also: Xfce forum - [Theme
+confusion](https://forum.xfce.org/viewtopic.php?pid=64711#p64711)
+
+There is no option in the Appearance settings to go back to the default, but it
+can be done by resetting the value using xfconf.
+
+```
+xfconf-query -c xsettings -p /Net/ThemeName -r
+```
+
+Unfortunately, currently (Xfce 4.20) there is bug preventing the Adwaita light
+mode from being usable (Xfce forum - [Xfce doesn't apply Adwaita white
+theme](https://forum.xfce.org/viewtopic.php?id=18551))
