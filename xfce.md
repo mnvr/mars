@@ -214,7 +214,7 @@ init-+...
 
 * **Thunar** (`thunar`): File manager.
 
-## Application finder `xfce4-appfinder`
+## App finder `xfce4-appfinder`
 
 > The Xfce panel can be used to access programs by means of _launchers_, these
 > program launchers are displayed as icons on the panel to launch the specified
@@ -227,6 +227,8 @@ init-+...
 By default, the `xfce4-session` will start an instance of `xfce4-appfinder` (as
 a child of `xfsettingsd` and keep it running in the background for fast access,
 reusing it for invocations.
+
+See [App Finder 2](#app-finder-2) below for configuration.
 
 ## Thunar
 
@@ -270,16 +272,48 @@ Window manager.
 
 * `M-tab` - Cycle through windows.
 
-By default, cycling shows a preview of the window. If needed, this can be turned
-off by:
+By default, cycling shows a preview of the window. This can be turned off by in
+Window Manager Tweaks > Compositor by disabling the "Show window previews in
+place of windows when cycling".
 
 ```sh
-xfconf-query -c xfwm4 -p /general/cycle_preview -n -t bool -s false
+xfconf-query -c xfwm4 -p /general/cycle_preview -t bool -ns false
+```
+
+This leaves us with a compact horizontal icon switcher.
+
+Alternatively, vertical list based view can be enabled under Window Manager
+Tweaks > Cycling by enabling the "Cycle through windows in a list" option.
+
+```sh
+xfconf-query -c xfwm4 -p /general/cycle_tabwin_mode -n -t int -ns 1
 ```
 
 * `M-space` brings up the window operations menu.
 * `C-M-d` - Show desktop.
 * `M-F4` - Close window.
+
+### Workspaces
+
+The number of workspaces can be reduced from 4 to 1 by
+
+```sh
+xfconf-query -c xfwm4 -p /general/workspace_count -n -t int -ns 1
+```
+
+And margins added to the screen edges. The window manager will not place new
+windows in the margins, but we can still manually move them there. The values
+are in pixels (I think).
+
+```sh
+xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 20
+xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 30
+xfconf-query -c xfwm4 -p /general/margin_left -n -t int -ns 10
+xfconf-query -c xfwm4 -p /general/margin_right -n -t int -ns 10
+```
+
+These margins are also in effect when maximizing the window, which is a bit
+unfortunate, but fortunately that's not something I need to do often.
 
 ## xfce4-desktop
 
@@ -297,6 +331,12 @@ Reset it using `--reset`.
 
 The desktop program displays a static background image by default, because that
 is what it is programmed to do, but we are programmers, we can reprogram it too.
+
+To hide the icons from the desktop,
+
+```sh
+xfconf-query -c xfce4-desktop -p /desktop-icons/style -t int -ns 0
+```
 
 ## Theme
 
@@ -448,3 +488,30 @@ Exo is an Xfce internal library. As a user, we know of its existence in two ways
 
 * **exo-desktop-item-edit**, an editor for .desktop files
 * **exo-open**, Xfce's xdg-open.
+
+## App Finder 2
+
+`Super-R` is a more convenient invocation, but it launches in compact mode where
+auto complete doesn't seem to work.
+
+`Alt-F3` launches it is expanded mode, where combined with the following tweaks
+and the "Command History" category, it works okay. Perhaps the part I'm missing
+is defining my aliases?
+
+```sh
+xfconf-query -c xfce4-appfinder -p /single-click-execute -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /sort-by-frecency -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /icon-view -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /text-beside-icons -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /remember-category -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /close-on-focus-lost -t bool -ns true
+xfconf-query -c xfce4-appfinder -p /always-center -t bool -ns false
+xfconf-query -c xfce4-appfinder -p /hide-category-pane -t bool -ns false
+```
+
+## Panel
+
+The panel(s) are eminently customizable, but the format doesn't lend it much to
+scripting. Customizing it using the settings app, stashing the resultant
+`~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml` and replacing it
+when not logged in is perhaps the easiest approach in the vanilla setup.
