@@ -21,7 +21,7 @@ Homepage: [alpinelinux.org](https://alpinelinux.org)
 * [xfconf](xfconf) - Xfce settings
 * [tty](tty) - Teletypes / Simulcara and simulation
 * [lightdm](lightdm) - Display manager
-* [UEFI](uefi) - Firmware
+* [UEFI](uefi) - Firmware, [GRUB](grub).
 * [GTK](gtk) - Window toolkit
 * [Fonts](fonts)
 * Tools - [busybox](busybox), [coreutils](coreutils)

@@ -265,7 +265,7 @@ cat /etc/lightdm/lightdm.conf | grep autologin-user
 and also setting the permissions.
 
 ```sh
-echo | doas install -D -m 644 /dev/stdin /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
+echo | install -D -m 644 /dev/stdin /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
 [Seat:*]
 autologin-user=$(whoami)
 EOF
