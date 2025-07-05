@@ -148,6 +148,13 @@ More details about xfce4-session are available in the Xfce online manuals:
 > next startup. You can create several different sessions and choose one of them
 > on startup.
 
+To ask xfce4-session to automatically save the session on logout (including
+shutdown),
+
+```sh
+xfconf-query -c xfce4-session -p /general/SaveOnExit -t bool -ns true
+```
+
 ## Window manager
 
 ### Tips
@@ -303,11 +310,11 @@ xfconf-query -c xfwm4 -p /general/workspace_count -n -t int -ns 1
 
 And margins added to the screen edges. The window manager will not place new
 windows in the margins, but we can still manually move them there. The values
-are in pixels (I think).
+are in pixels.
 
 ```sh
-xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 20
-xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 30
+xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 10
+xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 50
 xfconf-query -c xfwm4 -p /general/margin_left -n -t int -ns 10
 xfconf-query -c xfwm4 -p /general/margin_right -n -t int -ns 10
 ```
@@ -329,8 +336,9 @@ xfconf-query --channel xfce4-desktop \
 
 Reset it using `--reset`.
 
-The desktop program displays a static background image by default, because that
-is what it is programmed to do, but we are programmers, we can reprogram it too.
+> The desktop program displays a static background image by default, because
+> that is what it is programmed to do. We are programmers, we can reprogram it
+> to show anything we want.
 
 To hide the icons from the desktop,
 
@@ -491,12 +499,18 @@ Exo is an Xfce internal library. As a user, we know of its existence in two ways
 
 ## App Finder 2
 
-`Super-R` is a more convenient invocation, but it launches in compact mode where
-auto complete doesn't seem to work.
+Default keybindings are `Alt-F2` (compact) and `Alt-F3` (expanded).
 
-`Alt-F3` launches it is expanded mode, where combined with the following tweaks
-and the "Command History" category, it works okay. Perhaps the part I'm missing
-is defining my aliases?
+`Super-R` is a more convenient invocation, but it launches in compact mode where
+auto complete doesn't seem to work. Remap the key to expanded by removing the
+"-c" argument.
+
+```sh
+xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>r' -t string -ns 'xfce4-appfinder'
+```
+
+The expanded mode combined with the following tweaks and when using the "Command
+History" category, works okay.
 
 ```sh
 xfconf-query -c xfce4-appfinder -p /single-click-execute -t bool -ns true
@@ -511,7 +525,7 @@ xfconf-query -c xfce4-appfinder -p /hide-category-pane -t bool -ns false
 
 ## Panel
 
-The panel(s) are eminently customizable, but the format doesn't lend it much to
-scripting. Customizing it using the settings app, stashing the resultant
+The panel(s) are customizable, but the format isn't easily to change using
+commands. Customizing it using the settings app, stashing the resultant
 `~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml` and replacing it
-when not logged in is perhaps the easiest approach in the vanilla setup.
+when not logged in simplest approach I've found.

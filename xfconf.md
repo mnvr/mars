@@ -2,7 +2,6 @@
 
 Xfce configuration subsystem.
 
-
 ```sh
 ls /usr/bin | grep xf | paste - - | while read a b; do printf "%-30s %-30s\n" $a $b; done
 ```
@@ -171,9 +170,18 @@ xfconf-query --channel xfce4-terminal --property /shortcuts-no-mnemonics --creat
 Which can be shortened to the following template
 
 ```sh
-xfconf-query -c xfce4-terminal -np /shortcuts-no-mnemonics -t bool -s true
+xfconf-query -c xfce4-terminal -p /shortcuts-no-mnemonics -t bool -ns true
 ```
 
 From the examples in the
 [docs.xfce.org/xfce/xfconf/xfconf-query](https://docs.xfce.org/xfce/xfconf/xfconf-query),
 the types seem to be `bool`, `string`, `int`.
+
+## dbus-launch
+
+If launched from a separate TTY, `xfconf-query` fails to run, complaining about
+not being able to find the X display. This works then:
+
+```
+dbus-launch xfconf-query -l
+```
