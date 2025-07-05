@@ -261,12 +261,14 @@ cat /etc/lightdm/lightdm.conf | grep autologin-user
 #autologin-user-timeout=0
 ```
 
-Seat can be `*`, or `Seat0`, as `dm-tools list-seats` tells us.
+[install](coreutils) is handy to create the config file, creating the directory
+and also setting the permissions.
 
 ```sh
-mkdir -p  /etc/lightdm/lightdm.conf.d
-cat > /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
-[Seat:Seat0]
-autologin-user=m
+echo | doas install -D -m 644 /dev/stdin /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
+[Seat:*]
+autologin-user=$(whoami)
 EOF
 ```
+
+If something is not working, `/var/log/lightdm`.

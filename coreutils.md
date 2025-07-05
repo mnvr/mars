@@ -21,3 +21,9 @@ Sometimes the busybox variant might be the one that's non-standards
 compliant. Or neither might be, and in different ways.
 
 > `pax` is POSIX compliant. Nobody cares, everyone still ships `cpio`.
+
+## install
+
+Install is convenient for editing files in `/etc` because it can create leading
+directories, set file permissions, and of course copy the file all in a single
+invocation. `/dev/stdin` is a valid input file.
