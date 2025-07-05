@@ -10,7 +10,7 @@ Xfce Terminal emulator
 
 ## Keyboard shortcuts
 
-Prefix `M-Shift`
+Prefix `Ctrl-Shift`
 
 * New tab - T
 * Close tab - W
@@ -19,13 +19,17 @@ Prefix `M-Shift`
 * Copy - C
 * Paste - V
 
+New tab and new window tripped me up for a while, before I found that they are
+the same as Firefox's (`Ctrl-T` new tab, `Ctrl-N` new window); and that sorted
+out me for both.
+
 Prefix `C` (Ctrl).
 
 * Prev / next tab - Page up / down
 
 > On MacBook keyboards, Page up / down is Fn + up / down arrow.
 
-Prefix `M`
+Prefix `Alt`
 
 * Go to tab - 1...9
 

@@ -236,3 +236,37 @@ Seat0
   Session2
     UserName='m'
 ```
+
+## Autologin
+
+If running in a context with prior authentication, e.g. in a VM, it is
+convenient to autologin into the sole user account.
+
+As described in the lightdm doc section quoted above,
+
+> sysadmins ... make a file `/etc/lightdm/lightdm.conf.d/50-myconfig.conf`
+>
+> ```
+> [Seat:*]
+> user-session=mysession
+> ```
+
+```sh
+cat /etc/lightdm/lightdm.conf | grep autologin-user
+```
+```
+# autologin-user = User to log in with by default (overrides autologin-guest)
+# autologin-user-timeout = Number of seconds to wait before loading default user
+#autologin-user=
+#autologin-user-timeout=0
+```
+
+Seat can be `*`, or `Seat0`, as `dm-tools list-seats` tells us.
+
+```sh
+mkdir -p  /etc/lightdm/lightdm.conf.d
+cat > /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
+[Seat:Seat0]
+autologin-user=m
+EOF
+```
