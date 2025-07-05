@@ -509,8 +509,7 @@ auto complete doesn't seem to work. Remap the key to expanded by removing the
 xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>r' -t string -ns 'xfce4-appfinder'
 ```
 
-The expanded mode combined with the following tweaks and when using the "Command
-History" category, works okay.
+Tweaks.
 
 ```sh
 xfconf-query -c xfce4-appfinder -p /single-click-execute -t bool -ns true
@@ -518,7 +517,6 @@ xfconf-query -c xfce4-appfinder -p /sort-by-frecency -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /icon-view -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /text-beside-icons -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /remember-category -t bool -ns true
-xfconf-query -c xfce4-appfinder -p /close-on-focus-lost -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /always-center -t bool -ns false
 xfconf-query -c xfce4-appfinder -p /hide-category-pane -t bool -ns false
 ```
