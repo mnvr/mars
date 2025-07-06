@@ -1,10 +1,14 @@
+# Alpine Linux
+
+Homepage: [alpinelinux.org](https://alpinelinux.org)
+
 ## Install
 
 Minimal install is just `setup-alpine`, then `setup-desktop`. The following is
 what _I_ did last time.
 
 > Likely outdated, read what the [official docs](https://alpinelinux.org/) have
-  to say.
+> to say.
 
 ```sh
 setup-alpine
@@ -16,10 +20,12 @@ setup-alpine
 reboot
 
 vi /etc/apk/repositories # enable community, https
-apk add doas emacs-nox git
+apk add doas git
 echo "permit nopass :m" >>/etc/doas.d/doas.conf
 setup-desktop # xfce
 ```
+
+Now handoff to setup script in [dotfiles](https://github.com/mnvr/dotfiles).
 
 ## setup-*
 
@@ -62,4 +68,5 @@ just is "proper").
 
 ## sys mode
 
-sys mode is where the Alpine system is installed to a hard disk.
+sys mode is where the Alpine system is installed to a hard disk. During the
+installation this is done by `setup-disk`.
