@@ -114,3 +114,14 @@ Modal: Normal mode and insert mode
 * - t transpose split
 * Space f file viewer
 * - Ctrl - v / h Open in split
+
+## Theme
+
+Default theme is fine but dark.
+
+```vim
+:theme adwaita_light
+```
+
+[Helix/wiki/Themes](https://github.com/helix-editor/helix/wiki/Themes) has a partial list
+with screenshots.
