@@ -8,6 +8,10 @@ Hello, new friend.
 apk add helix
 ```
 
+```sh
+hx
+```
+
 The tree-sitter grammars are currently packaged separately.
 
 > https://tree-sitter.github.io/tree-sitter/
@@ -22,9 +26,18 @@ The tree-sitter grammars are currently packaged separately.
 apk add helix-tree-sitter-vendor
 ```
 
-```sh
-hx
-```
+> Helix also has built in LSP (Language server protocol) support. Tree-sitter and LSP intersect, but
+> not completely. Loosely speaking, tree-sitter is more "syntactic", and file level; LSP drives more "semantic" aspects
+> and works on a project level.
+>
+> Their respective blurbs from the Helix home page:
+>
+> * "Tree-sitter produces error tolerant and robust syntax trees, which enables better syntax
+>   higlighting, indent calculation and code navigation."
+>
+> * "Language server support enables language specific auto completion, goto definition,
+>   documentation, diagnostics and other IDE features with no additional configuration".
+
 ```sh
 hx --tutor
 ```
