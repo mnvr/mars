@@ -1,7 +1,7 @@
 # GRUB
 
-The bootloader is what the machine's firmware (BIOS, UEFI) hands off control to
-once it is done thinking.
+The bootloader is what the machine's firmware (BIOS, [UEFI](uefi)) hands off
+control to once it is done thinking.
 
 Alpine will use GRUB as the bootloader if it detects that is being installed on
 a machine that uses UEFI firmware.
@@ -14,7 +14,7 @@ a machine that uses UEFI firmware.
 > ```
 > usage: setup-disk [-hLqrve] [-k kernelflavor] [-m MODE] [-o apkovl] [-s SWAPSIZE]
 >                   [-w FILE] [MOUNTPOINT | DISKDEV...]
-> 
+>
 > Install alpine on harddisk.
 > ...
 > ```
