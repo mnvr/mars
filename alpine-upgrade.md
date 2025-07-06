@@ -80,6 +80,3 @@ cat /etc/alpine-release
 ```
 3.22.0
 ```
-
-
-
