@@ -1,10 +1,15 @@
-Notes on my workstation, Mars.
+(Archived) Notes on my workstation, Mars.
 
-* **Alpine Linux** — OS
-* **Helix** — Editor
-* **zsh** — Shell
+In [10 distros in 10 days](https://mnvr.in/10-distros/), I wandered around in
+the Linux distro landscape and found **Alpine Linux**, the BSD I wanted but
+forward looking.
 
-The BSD I wanted, but forward looking.
+These here were are some notes I took as I was exploring it for the first time.
+
+They're not updated anymore, and were possibly misinformed to begin with, but
+still I'll leave them around for people like me who like time travelling into
+the past by reading what Denver9 was doing that hot summer Sunday afternoon to
+the comforting whirr of ceiling fans.
 
 * [Installing](alpine-install)
 * [git](git)
