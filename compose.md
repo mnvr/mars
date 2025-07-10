@@ -25,4 +25,8 @@ xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -t string -ns com
 Then, we can type compose key followed by "--." to insert an En dash – like this
 – or an Em dash by using "---" — neat!
 
+Other compose bindings:
+
+- • `.=`
+- · `.-`
 
